@@ -1,0 +1,7 @@
+FROM node:22-slim
+WORKDIR /app
+COPY server.js seed-data.js admin.html products.json uploads.json ./
+RUN mkdir -p public seed && mv admin.html public/ && mv products.json uploads.json seed/
+ENV DATA_DIR=/tmp/oscar-data
+EXPOSE 10000
+CMD ["node","--disable-warning=ExperimentalWarning","server.js"]

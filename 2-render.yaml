@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: oscar-store
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/catalog
+    envVars:
+      - key: ADMIN_PASSWORD
+        sync: false
